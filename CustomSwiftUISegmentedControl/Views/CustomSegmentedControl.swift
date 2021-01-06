@@ -1,7 +1,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct CustomSegmentedControl: View {
     
     //------------------------------------
     // MARK: Properties
@@ -29,8 +29,8 @@ struct ContentView: View {
 //=======================================
 // MARK: Previews
 //=======================================
-struct ContentView_Previews: PreviewProvider {
+struct CustomSegmentedControl_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        CustomSegmentedControl()
     }
 }
