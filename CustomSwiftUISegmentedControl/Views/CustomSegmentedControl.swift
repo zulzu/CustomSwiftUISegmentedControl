@@ -25,6 +25,17 @@ struct CustomSegmentedControl: View {
                 .foregroundColor(.gray)
                 .opacity(0.2)
             
+            // # Dividers
+            HStack(spacing: 0) {
+                
+                ForEach(0..<segmentLabels.count) { idx in
+                    
+                    if idx < (segmentLabels.count - 1) {
+                        customDivider(offset: (segmentWidth(size) - 0.5) * CGFloat(idx + 1))
+                    }
+                }
+            }
+            
             // # Selection background
             RoundedRectangle(cornerRadius: 10)
                 .frame(width: segmentWidth(size) - (segmentPadding * 2), height: size.height - (segmentPadding * 2))
@@ -69,6 +80,14 @@ struct CustomSegmentedControl: View {
     /// Calculates the offset of a segment
     private func calculateSegmentOffset(_ mainSize: CGSize) -> CGFloat {
         segmentWidth(mainSize) * CGFloat(selection)
+    }
+    
+    /// Creates a Divider for placing between two segments
+    private func customDivider(offset: CGFloat) -> some View {
+        Divider()
+            .background(Color.black)
+            .frame(height: size.height * 0.5) // The height of the divider
+            .offset(x: offset)
     }
 }
 
