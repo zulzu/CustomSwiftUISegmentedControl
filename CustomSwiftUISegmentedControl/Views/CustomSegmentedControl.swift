@@ -1,6 +1,7 @@
 
 import SwiftUI
 
+/// Creates a `CustomSegmentedControl` that shows the `segmentLabels`.
 struct CustomSegmentedControl: View {
     
     //------------------------------------
@@ -10,8 +11,11 @@ struct CustomSegmentedControl: View {
     @Binding public var selection: Int
     
     // # Private/Fileprivate
+    // The width and the height of the segmented control
     private let size: CGSize
+    // An array of Strings to display on the segments
     private let segmentLabels: [String]
+    // The padding of the selection background
     private let segmentPadding: CGFloat = 3
     
     // # Body
@@ -60,6 +64,11 @@ struct CustomSegmentedControl: View {
     //=======================================
     // MARK: Public Methods
     //=======================================
+    /// Creates a `CustomSegmentedControl` that shows the `segmentLabels`.
+    /// - Parameters:
+    ///   - selection: A binding to a property that determines the currently selected option.
+    ///   - size: The width and the height of the segmented control
+    ///   - segmentLabels: An array of Strings to display on the segments
     public init(selection: Binding<Int>, size: CGSize, segmentLabels: [String]) {
         self._selection = selection
         self.size = size
@@ -117,7 +126,7 @@ fileprivate struct SegmentLabel: View {
             .fixedSize(horizontal: false, vertical: false)
             .foregroundColor(textColour)
             .frame(width: width)
-            .contentShape(Rectangle())
+            .contentShape(Rectangle()) // without this, only the text is tappable, not the whole segment
     }
 }
 

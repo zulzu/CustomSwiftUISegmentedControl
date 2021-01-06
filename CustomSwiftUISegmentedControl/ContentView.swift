@@ -9,27 +9,13 @@ struct ContentView: View {
     // # Public/Internal/Open
     
     // # Private/Fileprivate
+    // The selected segment of the Segmented Control
     @State private var segmentSelection: Int = 0
     
     // # Body
     var body: some View {
         
-        ZStack {
-            
-            HStack {
-                
-                Spacer()
-                Divider()
-                Spacer()
-                Divider()
-                Spacer()
-                Divider()
-                Spacer()
-            }
-            .padding(.horizontal, 20)
-            
             CustomSegmentedControl(selection: $segmentSelection, size: CGSize(width: UIScreen.main.bounds.width - 40, height: 48), segmentLabels: ["One", "Two", "Three", "Four"])
-        }
     }
     
     //=======================================
