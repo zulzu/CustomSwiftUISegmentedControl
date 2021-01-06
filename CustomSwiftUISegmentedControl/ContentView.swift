@@ -11,11 +11,12 @@ struct ContentView: View {
     // # Private/Fileprivate
     // The selected segment of the Segmented Control
     @State private var segmentSelection: Int = 0
+    private var mainPadding: CGFloat = 20
     
     // # Body
     var body: some View {
         
-            CustomSegmentedControl(selection: $segmentSelection, size: CGSize(width: UIScreen.main.bounds.width - 40, height: 48), segmentLabels: ["One", "Two", "Three", "Four"])
+        CustomSegmentedControl(selection: $segmentSelection, size: CGSize(width: UIScreen.main.bounds.width - (mainPadding * 2), height: 48), segmentLabels: ["One", "Two", "Three", "Four"])
     }
     
     //=======================================

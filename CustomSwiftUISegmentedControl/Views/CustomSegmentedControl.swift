@@ -40,7 +40,7 @@ struct CustomSegmentedControl: View {
                 }
             }
             .animation(Animation.easeOut(duration: 0.8))
-
+            
             // # Selection background
             RoundedRectangle(cornerRadius: 10)
                 .frame(width: segmentWidth(size) - (segmentPadding * 2), height: size.height - (segmentPadding * 2))
@@ -54,7 +54,6 @@ struct CustomSegmentedControl: View {
                     SegmentLabel(title: segmentLabels[idx], width: segmentWidth(size), textColour: selection == idx ? Color.white : Color.black)
                         .onTapGesture {
                             selection = idx
-                            print("\(idx)")
                         }
                 }
             }
