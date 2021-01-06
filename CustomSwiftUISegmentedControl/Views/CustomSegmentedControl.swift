@@ -31,11 +31,12 @@ struct CustomSegmentedControl: View {
                 ForEach(0..<segmentLabels.count) { idx in
                     
                     if idx < (segmentLabels.count - 1) {
-                        customDivider(offset: (segmentWidth(size) - 0.5) * CGFloat(idx + 1))
+                        customDivider(offset: (segmentWidth(size) - 0.5) * CGFloat(idx + 1), opacity: idx == selection - 1 || idx == selection ? 0.0 : 1.0)
                     }
                 }
             }
-            
+            .animation(Animation.easeOut(duration: 0.8))
+
             // # Selection background
             RoundedRectangle(cornerRadius: 10)
                 .frame(width: segmentWidth(size) - (segmentPadding * 2), height: size.height - (segmentPadding * 2))
@@ -83,11 +84,12 @@ struct CustomSegmentedControl: View {
     }
     
     /// Creates a Divider for placing between two segments
-    private func customDivider(offset: CGFloat) -> some View {
+    private func customDivider(offset: CGFloat, opacity: Double) -> some View {
         Divider()
             .background(Color.black)
             .frame(height: size.height * 0.5) // The height of the divider
             .offset(x: offset)
+            .opacity(opacity)
     }
 }
 
