@@ -23,9 +23,10 @@ struct CustomSegmentedControl: View {
                 .foregroundColor(.gray)
                 .opacity(0.2)
             
-            HStack {
+            // # Segments
+            HStack(spacing: 0) {
                 ForEach(0..<segmentLabels.count) { idx in
-                    SegmentLabel(title: segmentLabels[idx], width: (size.width - 40) / 3, textColour: Color.black)
+                    SegmentLabel(title: segmentLabels[idx], width: segmentWidth(size), textColour: Color.black)
                 }
             }
         }
@@ -42,6 +43,14 @@ struct CustomSegmentedControl: View {
     //=======================================
     // MARK: Private Methods
     //=======================================
+    /// Calculates the width of a segment
+    private func segmentWidth(_ mainSize: CGSize) -> CGFloat {
+        var width = (mainSize.width / CGFloat(segmentLabels.count))
+        if width < 0 {
+            width = 0
+        }
+        return width
+    }
 }
 
 
@@ -78,6 +87,6 @@ fileprivate struct SegmentLabel: View {
 //=======================================
 struct CustomSegmentedControl_Previews: PreviewProvider {
     static var previews: some View {
-        CustomSegmentedControl(size: CGSize(width: UIScreen.main.bounds.width - 40, height: 48), segmentLabels: ["One", "Two", "Three"])
+        CustomSegmentedControl(size: CGSize(width: 300, height: 48), segmentLabels: ["One", "Two", "Three", "Four"])
     }
 }
