@@ -8,11 +8,11 @@ struct CustomSegmentedControl: View {
     //------------------------------------
     // # Public/Internal/Open
     @Binding public var selection: Int
-
+    
     // # Private/Fileprivate
     private let size: CGSize
     private let segmentLabels: [String]
-
+    
     // # Body
     var body: some View {
         
@@ -28,11 +28,12 @@ struct CustomSegmentedControl: View {
             RoundedRectangle(cornerRadius: 10)
                 .frame(width: segmentWidth(size), height: size.height - 6)
                 .foregroundColor(.black)
+                .offset(x: calculateSegmentOffset(size))
             
             // # Labels
             HStack(spacing: 0) {
                 ForEach(0..<segmentLabels.count) { idx in
-                    SegmentLabel(title: segmentLabels[idx], width: segmentWidth(size), textColour: idx == 0 ? Color.white : Color.black)
+                    SegmentLabel(title: segmentLabels[idx], width: segmentWidth(size), textColour: selection == idx ? Color.white : Color.black)
                         .onTapGesture {
                             selection = idx
                             print("\(idx)")
@@ -61,6 +62,11 @@ struct CustomSegmentedControl: View {
             width = 0
         }
         return width
+    }
+    
+    /// Calculates the offset of a segment
+    private func calculateSegmentOffset(_ mainSize: CGSize) -> CGFloat {
+        segmentWidth(mainSize) * CGFloat(selection)
     }
 }
 
