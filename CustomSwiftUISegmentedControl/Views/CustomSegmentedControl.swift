@@ -29,6 +29,7 @@ struct CustomSegmentedControl: View {
                 .frame(width: segmentWidth(size), height: size.height - 6)
                 .foregroundColor(.black)
                 .offset(x: calculateSegmentOffset(size))
+                .animation(Animation.easeInOut(duration: 0.5))
             
             // # Labels
             HStack(spacing: 0) {

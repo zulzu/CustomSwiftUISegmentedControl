@@ -14,7 +14,7 @@ struct ContentView: View {
     // # Body
     var body: some View {
         
-        CustomSegmentedControl(selection: $segmentSelection, size: CGSize(width: UIScreen.main.bounds.width, height: 48), segmentLabels: ["One", "Two", "Three", "Four"])
+        CustomSegmentedControl(selection: $segmentSelection, size: CGSize(width: UIScreen.main.bounds.width - 40, height: 48), segmentLabels: ["One", "Two", "Three", "Four"])
         
     }
     
