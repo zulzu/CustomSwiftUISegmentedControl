@@ -26,9 +26,9 @@ struct CustomSegmentedControl: View {
             
             // # Selection background
             RoundedRectangle(cornerRadius: 10)
-                .frame(width: segmentWidth(size), height: size.height - 6)
+                .frame(width: segmentWidth(size) - 6, height: size.height - 6)
                 .foregroundColor(.black)
-                .offset(x: calculateSegmentOffset(size))
+                .offset(x: calculateSegmentOffset(size) + 3)
                 .animation(Animation.easeInOut(duration: 0.5))
             
             // # Labels
