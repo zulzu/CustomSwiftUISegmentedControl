@@ -12,6 +12,7 @@ struct CustomSegmentedControl: View {
     // # Private/Fileprivate
     private let size: CGSize
     private let segmentLabels: [String]
+    private let segmentPadding: CGFloat = 3
     
     // # Body
     var body: some View {
@@ -26,9 +27,9 @@ struct CustomSegmentedControl: View {
             
             // # Selection background
             RoundedRectangle(cornerRadius: 10)
-                .frame(width: segmentWidth(size) - 6, height: size.height - 6)
+                .frame(width: segmentWidth(size) - (segmentPadding * 2), height: size.height - (segmentPadding * 2))
                 .foregroundColor(.black)
-                .offset(x: calculateSegmentOffset(size) + 3)
+                .offset(x: calculateSegmentOffset(size) + segmentPadding)
                 .animation(Animation.easeInOut(duration: 0.5))
             
             // # Labels
