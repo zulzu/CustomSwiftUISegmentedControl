@@ -7,7 +7,8 @@ struct CustomSegmentedControl: View {
     // MARK: Properties
     //------------------------------------
     // # Public/Internal/Open
-    
+    @Binding public var selection: Int
+
     // # Private/Fileprivate
     private let size: CGSize
     private let segmentLabels: [String]
@@ -32,6 +33,10 @@ struct CustomSegmentedControl: View {
             HStack(spacing: 0) {
                 ForEach(0..<segmentLabels.count) { idx in
                     SegmentLabel(title: segmentLabels[idx], width: segmentWidth(size), textColour: idx == 0 ? Color.white : Color.black)
+                        .onTapGesture {
+                            selection = idx
+                            print("\(idx)")
+                        }
                 }
             }
         }
@@ -40,7 +45,8 @@ struct CustomSegmentedControl: View {
     //=======================================
     // MARK: Public Methods
     //=======================================
-    public init(size: CGSize, segmentLabels: [String]) {
+    public init(selection: Binding<Int>, size: CGSize, segmentLabels: [String]) {
+        self._selection = selection
         self.size = size
         self.segmentLabels = segmentLabels
     }
@@ -92,6 +98,6 @@ fileprivate struct SegmentLabel: View {
 //=======================================
 struct CustomSegmentedControl_Previews: PreviewProvider {
     static var previews: some View {
-        CustomSegmentedControl(size: CGSize(width: 300, height: 48), segmentLabels: ["One", "Two", "Three", "Four"])
+        CustomSegmentedControl(selection: Binding.constant(0), size: CGSize(width: UIScreen.main.bounds.width, height: 48), segmentLabels: ["One", "Two", "Three", "Four"])
     }
 }

@@ -9,11 +9,13 @@ struct ContentView: View {
     // # Public/Internal/Open
     
     // # Private/Fileprivate
+    @State private var segmentSelection: Int = 0
     
     // # Body
     var body: some View {
         
-        Text("Hello, World!")
+        CustomSegmentedControl(selection: $segmentSelection, size: CGSize(width: UIScreen.main.bounds.width, height: 48), segmentLabels: ["One", "Two", "Three", "Four"])
+        
     }
     
     //=======================================
