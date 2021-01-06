@@ -23,10 +23,15 @@ struct CustomSegmentedControl: View {
                 .foregroundColor(.gray)
                 .opacity(0.2)
             
-            // # Segments
+            // # Selection background
+            RoundedRectangle(cornerRadius: 10)
+                .frame(width: segmentWidth(size), height: size.height - 6)
+                .foregroundColor(.black)
+            
+            // # Labels
             HStack(spacing: 0) {
                 ForEach(0..<segmentLabels.count) { idx in
-                    SegmentLabel(title: segmentLabels[idx], width: segmentWidth(size), textColour: Color.black)
+                    SegmentLabel(title: segmentLabels[idx], width: segmentWidth(size), textColour: idx == 0 ? Color.white : Color.black)
                 }
             }
         }
