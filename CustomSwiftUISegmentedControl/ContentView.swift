@@ -25,13 +25,37 @@ struct ContentView: View {
             Spacer()
             
             if segmentSelection == 0 {
-                Text("View One")
+                
+                ZStack {
+                    
+                    Color.red
+                        .modifier(SegmentedControlViewBackground(padding: mainPadding))
+                    Text("View One")
+                }
             } else if segmentSelection == 1 {
-                Text("View Two")
+                
+                ZStack {
+                    
+                    Color.green
+                        .modifier(SegmentedControlViewBackground(padding: mainPadding))
+                    Text("View Two")
+                }
             } else if segmentSelection == 2 {
-                Text("View Three")
+                
+                ZStack {
+                    
+                    Color.blue
+                        .modifier(SegmentedControlViewBackground(padding: mainPadding))
+                    Text("View Three")
+                }
             } else if segmentSelection == 3 {
-                Text("View Four")
+                
+                ZStack {
+                    
+                    Color.yellow
+                        .modifier(SegmentedControlViewBackground(padding: mainPadding))
+                    Text("View Four")
+                }
             } else {
                 Text("Content missing")
             }

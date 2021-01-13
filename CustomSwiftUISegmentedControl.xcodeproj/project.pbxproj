@@ -12,6 +12,7 @@
 		C91EEE3425A5E63D00D8A13E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C91EEE3325A5E63D00D8A13E /* Assets.xcassets */; };
 		C91EEE3725A5E63D00D8A13E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C91EEE3625A5E63D00D8A13E /* Preview Assets.xcassets */; };
 		C91EEE4125A5E72300D8A13E /* CustomSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91EEE4025A5E72300D8A13E /* CustomSegmentedControl.swift */; };
+		C91EEEF125AF2AA300D8A13E /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91EEEF025AF2AA200D8A13E /* Modifiers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		C91EEE3625A5E63D00D8A13E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C91EEE3825A5E63D00D8A13E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C91EEE4025A5E72300D8A13E /* CustomSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentedControl.swift; sourceTree = "<group>"; };
+		C91EEEF025AF2AA200D8A13E /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 				C91EEE2F25A5E63C00D8A13E /* CustomSwiftUISegmentedControlApp.swift */,
 				C91EEE3125A5E63C00D8A13E /* ContentView.swift */,
 				C91EEE3F25A5E71500D8A13E /* Views */,
+				C91EEEEF25AF2A8C00D8A13E /* Helpers */,
 				C91EEE3325A5E63D00D8A13E /* Assets.xcassets */,
 				C91EEE3825A5E63D00D8A13E /* Info.plist */,
 				C91EEE3525A5E63D00D8A13E /* Preview Content */,
@@ -78,6 +81,14 @@
 				C91EEE4025A5E72300D8A13E /* CustomSegmentedControl.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		C91EEEEF25AF2A8C00D8A13E /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				C91EEEF025AF2AA200D8A13E /* Modifiers.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,6 +160,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C91EEEF125AF2AA300D8A13E /* Modifiers.swift in Sources */,
 				C91EEE3225A5E63C00D8A13E /* ContentView.swift in Sources */,
 				C91EEE3025A5E63C00D8A13E /* CustomSwiftUISegmentedControlApp.swift in Sources */,
 				C91EEE4125A5E72300D8A13E /* CustomSegmentedControl.swift in Sources */,
